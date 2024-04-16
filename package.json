@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "clsx": "^2.1.0",
+    "contentlayer": "^0.3.4",
+    "date-fns": "^3.6.0",
     "framer-motion": "^11.0.25",
     "next": "14.1.4",
+    "next-contentlayer": "^0.3.4",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.13",
     "react": "^18",

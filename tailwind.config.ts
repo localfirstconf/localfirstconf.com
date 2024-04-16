@@ -9,7 +9,15 @@ const config: Config = {
         mono: ['var(--font-roboto-mono)']
       },
       colors: {
-        magenta: {DEFAULT: '#EF8AF9'}
+        magenta: {DEFAULT: '#EF8AF9'},
+        blue: {DEFAULT: '#3581F6'},
+        orange: {DEFAULT: '#C77F4A'}
+      },
+      animation: {
+        blink: 'blink 1s step-start infinite'
+      },
+      keyframes: {
+        blink: {'50%': {opacity: '0'}}
       }
     }
   },

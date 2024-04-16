@@ -2,13 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '@/public/images/logo.webp'
 import {ProfileLink} from './profile-link'
-
-const content = {
-  items: [
-    {href: '/schedule', caption: 'Schedule'},
-    {href: '/speakers', caption: 'Speakers'}
-  ]
-}
+import {Navigation} from './navigation'
 
 export const Sidebar = () => {
   return (
@@ -16,15 +10,7 @@ export const Sidebar = () => {
       <Link href="/">
         <Image src={Logo} alt="Local-First Conf Logo" className="h-14 w-auto" />
       </Link>
-      <ul className="mt-8 flex flex-col gap-2">
-        {content.items.map(({href, caption}, index) => (
-          <li key={index}>
-            <Link href={href} className="transition-colors duration-300 hover:text-neutral-300">
-              {caption}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Navigation />
       <ProfileLink />
     </aside>
   )
