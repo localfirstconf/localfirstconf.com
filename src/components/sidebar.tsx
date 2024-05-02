@@ -6,7 +6,7 @@ import {Navigation} from './navigation'
 
 export const Sidebar = () => {
   return (
-    <aside className="fixed top-0 flex h-screen w-64 shrink-0 flex-col justify-between p-8 pt-16">
+    <aside className="fixed top-0 flex h-screen w-48 shrink-0 flex-col justify-between p-8 pt-24">
       <Link href="/">
         <Image src={Logo} alt="Local-First Conf Logo" className="h-14 w-auto" />
       </Link>

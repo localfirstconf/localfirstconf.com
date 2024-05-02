@@ -11,8 +11,8 @@ const sessions = allSessions
 
 export default function ConferencePage() {
   return (
-    <div className="grid w-full max-w-screen-lg grid-cols-2 gap-16 pb-16 pt-32">
-      <div className="sticky top-48 h-96">
+    <div className="grid w-full max-w-screen-lg grid-cols-2 gap-16 pt-24">
+      <div className="sticky top-24 -mt-0.5 h-96">
         <h1 className="font-display text-[5rem] uppercase leading-none">Conference</h1>
         <p className="mb-16 mt-8 max-w-md">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam

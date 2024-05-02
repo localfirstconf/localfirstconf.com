@@ -8,7 +8,7 @@ export default function Layout({
   return (
     <div className="flex">
       <Sidebar />
-      <main className="flex w-full grow justify-center border pl-64">{children}</main>
+      <main className="flex w-full grow justify-center border pl-48">{children}</main>
     </div>
   )
 }

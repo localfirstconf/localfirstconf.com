@@ -22,7 +22,7 @@ export const NotificationBar = () => {
   }, [time])
 
   return (
-    <div className="fixed top-0 z-10 flex h-8 w-full items-center justify-between bg-magenta px-8 text-xs text-black">
+    <div className="fixed top-0 z-20 flex h-8 w-full items-center justify-between bg-magenta px-8 text-xs text-black">
       <div>
         {format(time, 'MMM dd, HH')}
         <span className="animate-blink">:</span>

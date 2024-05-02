@@ -20,7 +20,7 @@ export const Session = defineDocumentType(() => ({
         if (!path.startsWith('/')) path = `/${path}`
         path = path
           .split('/')
-          .map((segment: string) => segment.replace(/^\d\d\d\-/, ''))
+          .map((segment: string) => segment.replace(/^\d\d\d\d\-/, ''))
           .join('/')
           .replace('sessions', 'schedule')
         return path

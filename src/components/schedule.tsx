@@ -13,7 +13,7 @@ export const Schedule: React.FC<{sessions: (Omit<Session, 'speaker'> & {speaker:
     <div className="relative">
       <div className="">
         {hours.map((date, index) => (
-          <div key={index} className={cn('text-orange border-orange h-28', index === hours.length - 1 ? 'border-t' : 'mb-28 border-y')}>
+          <div key={index} className={cn('h-40 border-orange text-orange', index === hours.length - 1 ? 'border-t' : 'mb-40 border-y')}>
             {format(date, 'HH:mm')}
           </div>
         ))}
@@ -23,25 +23,47 @@ export const Schedule: React.FC<{sessions: (Omit<Session, 'speaker'> & {speaker:
           return (
             <li
               key={index}
-              className="absolute left-20 right-4 p-1"
-              style={{height: `calc(14rem * ${duration / 60})`, top: `calc(14rem * ${differenceInMinutes(new Date(start), firstStart) / 60})`}}
+              className="group absolute left-20 right-4 p-1"
+              style={{height: `calc(20rem * ${duration / 60})`, top: `calc(20rem * ${differenceInMinutes(new Date(start), firstStart) / 60})`}}
             >
-              <Link href={path} className="block h-full bg-white p-4 pt-3 text-sm text-neutral-500">
-                <h3 className="line-clamp-1 font-display text-2xl uppercase text-black">{title}</h3>
-                <div className="mt-1 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+              <div className="relative block h-full bg-neutral-400 text-sm text-neutral-500 group-hover:z-10 group-hover:bg-white group-hover:shadow-lg">
+                <div className="flex items-start justify-between gap-4 bg-neutral-400 px-4 pt-3.5 group-hover:bg-white">
+                  <h3
+                    className={cn('font-display text-xl uppercase leading-none text-black', duration < 15 && 'line-clamp-1 group-hover:line-clamp-none')}
+                  >
+                    {title}
+                  </h3>
+                  <div className="shrink-0 text-right leading-tight opacity-0 group-hover:opacity-100">
+                    <div>{`${format(new Date(start), 'HH:mm')}`}</div>
+                    <div className="relative h-0 group-hover:z-20">{format(addMinutes(new Date(start), duration), 'HH:mm')}</div>
+                  </div>
+                </div>
+
+                <div className="relative z-10 origin-top scale-y-0 bg-white p-4 transition-transform duration-0 group-hover:scale-y-100 group-hover:duration-100">
+                  <Link
+                    href={`/speakers/${speaker.slug}`}
+                    className="group/speaker flex items-center gap-2 opacity-0 transition-opacity duration-0 group-hover:opacity-100 group-hover:duration-200"
+                  >
                     <div className="relative h-9 w-9">
                       <Image src={speaker.avatar} alt={speaker.name} fill className="object-contain object-left" />
                     </div>
-                    <div className="w-8 leading-tight">{speaker.name}</div>
-                  </div>
-                  <div className="flex shrink-0 gap-1 text-right leading-tight">
-                    {`${format(new Date(start), 'HH:mm')}`}
-                    <br />
-                    {`${format(addMinutes(new Date(start), duration), 'HH:mm')}`}
+                    <div className="leading-tight">
+                      <span className="text-black group-hover/speaker:underline">{speaker.name}</span>
+                      <br />
+                      <span>{speaker.attributes[0]}</span>
+                    </div>
+                  </Link>
+                  <div className="mt-4 flex items-end justify-between gap-4">
+                    <p className="pb-1 text-xs">{excerpt}</p>
+                    <Link
+                      href={path}
+                      className="inline-flex h-10 shrink-0 items-center rounded-full bg-magenta px-4 text-black transition-colors duration-200 hover:bg-black hover:text-white"
+                    >
+                      Read more
+                    </Link>
                   </div>
                 </div>
-              </Link>
+              </div>
             </li>
           )
         })}
