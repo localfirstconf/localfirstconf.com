@@ -19,7 +19,7 @@ export const Schedule: React.FC<{sessions: (Omit<Session, 'speaker'> & {speaker:
         ))}
       </div>
       <ul className="">
-        {sessions.map(({title, excerpt, speaker, start, duration, location, path}, index) => {
+        {sessions.map(({title, excerpt, speaker, start, duration, path}, index) => {
           return (
             <li
               key={index}
@@ -31,14 +31,13 @@ export const Schedule: React.FC<{sessions: (Omit<Session, 'speaker'> & {speaker:
                   <h3
                     className={cn('font-display text-xl uppercase leading-none text-black', duration < 15 && 'line-clamp-1 group-hover:line-clamp-none')}
                   >
-                    {title}
+                    <Link href={path}>{title}</Link>
                   </h3>
                   <div className="shrink-0 text-right leading-tight opacity-0 group-hover:opacity-100">
                     <div>{`${format(new Date(start), 'HH:mm')}`}</div>
                     <div className="relative h-0 group-hover:z-20">{format(addMinutes(new Date(start), duration), 'HH:mm')}</div>
                   </div>
                 </div>
-
                 <div className="relative z-10 origin-top scale-y-0 bg-white p-4 transition-transform duration-0 group-hover:scale-y-100 group-hover:duration-100">
                   <Link
                     href={`/speakers/${speaker.slug}`}

@@ -1,7 +1,9 @@
 import {AvatarIcon} from './avatar'
+import {TwitterIcon} from './twitter'
 
 const icons = {
-  avatar: AvatarIcon
+  avatar: AvatarIcon,
+  twitter: TwitterIcon
 }
 
 export type IconName = keyof typeof icons

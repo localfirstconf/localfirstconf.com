@@ -14,7 +14,11 @@ export const Speaker = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (speaker: any) => speaker._raw.sourceFileName.replace('.mdx', '')
+      resolve: (speaker: any) => speaker._raw.sourceFileName.replace('.mdx', '').split('-').slice(1).join('-')
+    },
+    order: {
+      type: 'number',
+      resolve: (speaker: any) => speaker._raw.sourceFileName.replace('.mdx', '').split('-')[0]
     }
   }
 }))
