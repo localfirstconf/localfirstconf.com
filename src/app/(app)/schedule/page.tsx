@@ -56,7 +56,7 @@ export default function SchedulePage() {
             d="M201.216 0.364136L619 93.9966V598.866L530.818 700.535L0.5 580.998V306.507L201.216 0.364136ZM205.784 11.6359L10.5 309.493V573.002L527.182 689.465L609 595.134V102.003L205.784 11.6359Z"
           />
         </svg>
-        <h2 className="absolute inset-0 flex items-center justify-center font-display text-5xl uppercase leading-none group-hover:text-black">Hackday</h2>
+        <h2 className="absolute inset-0 flex items-center justify-center font-display text-5xl uppercase leading-none group-hover:text-black">Expo Day</h2>
       </Link>
     </div>
   )

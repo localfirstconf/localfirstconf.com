@@ -1,9 +1,15 @@
 import {AvatarIcon} from './avatar'
+import {InstagramIcon} from './instagram'
+import {LinkedinIcon} from './linkedin'
 import {TwitterIcon} from './twitter'
+import {WhatsappIcon} from './whatsapp'
 
 const icons = {
   avatar: AvatarIcon,
-  twitter: TwitterIcon
+  twitter: TwitterIcon,
+  whatsapp: WhatsappIcon,
+  linkedin: LinkedinIcon,
+  instagram: InstagramIcon
 }
 
 export type IconName = keyof typeof icons

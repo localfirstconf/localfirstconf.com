@@ -12,7 +12,7 @@ const content = {
       caption: 'Schedule',
       children: [
         {href: '/schedule/conference', caption: 'Conference'},
-        {href: '/schedule/hackday', caption: 'Hackday'}
+        {href: '/schedule/expo', caption: 'Expo Day'}
       ]
     },
     {href: '/speakers', caption: 'Speakers'}

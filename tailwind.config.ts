@@ -11,7 +11,8 @@ const config: Config = {
       colors: {
         magenta: {DEFAULT: '#EF8AF9'},
         blue: {DEFAULT: '#3581F6'},
-        orange: {DEFAULT: '#C77F4A'}
+        orange: {DEFAULT: '#C77F4A'},
+        green: {DEFAULT: '#4B7040'}
       },
       animation: {
         blink: 'blink 1s step-start infinite'

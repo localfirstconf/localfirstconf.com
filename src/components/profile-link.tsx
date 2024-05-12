@@ -1,8 +1,18 @@
+'use client'
+
 import Link from 'next/link'
+import {useEffect, useState} from 'react'
 
 export const ProfileLink = () => {
+  const [slug, setSlug] = useState<string>('')
+
+  useEffect(() => {
+    const slug = localStorage.getItem('attendee-slug')
+    if (slug) setSlug(slug)
+  }, [])
+
   return (
-    <Link href="/profile" className="group flex items-center gap-4">
+    <Link href={`/attendees/${slug ? slug : 'link'}`} className="group flex items-center gap-4">
       <div className="relative">
         <svg
           viewBox="0 0 28 32"
@@ -24,9 +34,6 @@ export const ProfileLink = () => {
             d="M2 14.7154V24.9676L23.3271 29.7871L26 26.7417V5.95373L10.1493 2.26476L2 14.7154ZM9.24138 0L0 14.119V26.566L24.046 32L28 27.4949V4.36575L9.24138 0Z"
           />
         </svg>
-        <div className="absolute inset-0 flex items-center justify-center text-xs text-black opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
-          #107
-        </div>
       </div>
       <span className="leading-none">
         Attendee
