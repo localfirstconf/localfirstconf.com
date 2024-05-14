@@ -5,5 +5,6 @@ import {makeSource} from 'contentlayer/source-files'
 
 export default makeSource({
   contentDirPath: 'content',
+  contentDirExclude: ['attendees/README.md'],
   documentTypes: [Speaker, Session, Attendee]
 })
