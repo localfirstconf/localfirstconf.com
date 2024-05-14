@@ -2,6 +2,8 @@
 
 To connect with others at the conference, you can create an attendee profile right here in the browser by following these steps.
 
+**Please create your profile before May 29th.**
+
 1. Copy the MDX code below as your profile template.
 2. Click on "Add file" and "Create new file" above in this directory.
 3. Name the file like this: `firstname-lastname.mdx`.
@@ -10,6 +12,12 @@ To connect with others at the conference, you can create an attendee profile rig
 6. Click on "Create pull request" and create the PR.
 
 We will then check your commit and merge it so that your profile is online and ready to connect.
+
+### Connecting your Profile
+
+After the Local-First Conf schedule is announced, you can connect your profile using your slug (name of the file; _firstname-lastname_) on the website.
+
+With that, you can open your profile and show the embedded QR code to anyone you want to connect with. Whoever scans your code, can then see your profile and contact details.
 
 ### Profile Fields
 
