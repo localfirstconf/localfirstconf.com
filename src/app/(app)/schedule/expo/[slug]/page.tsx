@@ -13,7 +13,7 @@ const sessions = allSessions.map((session) => {
 })
 
 export default function SessionPage({params: {slug}}: {params: {slug: string}}) {
-  const session = sessions.find((session) => session.path === `/schedule/conference/${slug}`)
+  const session = sessions.find((session) => session.path === `/schedule/expo/${slug}`)
   if (!session || session.placeholder) notFound()
 
   const Content = useMDXComponent(session.body.code)
@@ -40,7 +40,7 @@ export default function SessionPage({params: {slug}}: {params: {slug: string}}) 
                   <span className="text-neutral-500">{session.speaker.attributes[0]}</span>
                 </div>
               </Link>
-              <Link href="/schedule/conference" scroll={false}>
+              <Link href="/schedule/expo" scroll={false}>
                 <XMarkIcon className="size-6 text-neutral-500" />
               </Link>
             </div>

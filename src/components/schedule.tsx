@@ -2,12 +2,12 @@
 
 import {cn} from '@/utils/cn'
 import {Session, Speaker} from 'contentlayer/generated'
-import {addHours, addMinutes, eachHourOfInterval, format, interval} from 'date-fns'
+import {addHours, addMinutes, eachHourOfInterval, format, interval, startOfHour} from 'date-fns'
 import {ScheduleSession} from './schedule-session'
 import {CurrentTimeMarker} from './current-time-marker'
 
 export const Schedule: React.FC<{sessions: (Omit<Session, 'speaker'> & {speaker: Speaker})[]}> = ({sessions}) => {
-  const firstStart = new Date(sessions[0].start)
+  const firstStart = startOfHour(new Date(sessions[0].start))
   const lastEnd = addMinutes(new Date(sessions[sessions.length - 1].start), sessions[sessions.length - 1].duration)
   const hours = eachHourOfInterval(interval(firstStart, addHours(lastEnd, 1)))
 

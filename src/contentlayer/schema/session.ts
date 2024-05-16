@@ -6,11 +6,11 @@ export const Session = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: {type: 'string', required: true},
-    excerpt: {type: 'string', required: true},
-    speaker: {type: 'string', required: true, description: 'Slug of the speaker'},
+    placeholder: {type: 'boolean', default: false},
+    speaker: {type: 'string', required: false, description: 'Slug of the speaker'},
     start: {type: 'date', required: true},
     duration: {type: 'number', required: true, description: 'Duration in minutes'},
-    location: {type: 'string', required: true}
+    location: {type: 'string', required: false}
   },
   computedFields: {
     path: {

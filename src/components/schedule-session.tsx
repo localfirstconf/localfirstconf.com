@@ -8,7 +8,7 @@ import {usePathname} from 'next/navigation'
 import {FC} from 'react'
 
 export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: Speaker}; firstStart: Date}> = ({session, firstStart}) => {
-  const {title, start, duration, path} = session
+  const {title, placeholder, start, duration, path} = session
   const pathname = usePathname()
 
   return (
@@ -16,15 +16,25 @@ export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: 
       className="group absolute left-20 right-4 pb-0.5"
       style={{height: `calc(10rem * ${duration / 60})`, top: `calc(10rem * ${differenceInMinutes(new Date(start), firstStart) / 60})`}}
     >
-      <Link
-        href={path}
-        scroll={false}
-        className={cn('relative flex h-full items-start pl-2 pt-1', pathname === path ? 'bg-white' : 'bg-neutral-400 group-hover:bg-white')}
-      >
-        <h3 className={cn('font-display text-base uppercase leading-none text-black', duration < 15 && 'line-clamp-1 group-hover:line-clamp-none')}>
-          {title}
-        </h3>
-      </Link>
+      {placeholder ? (
+        <div className="relative flex h-full items-start border border-neutral-400 bg-neutral-800 pl-2 pt-1">
+          <h3
+            className={cn('font-display text-base uppercase leading-none text-neutral-400', duration < 15 && 'line-clamp-1 group-hover:line-clamp-none')}
+          >
+            {title}
+          </h3>
+        </div>
+      ) : (
+        <Link
+          href={path}
+          scroll={false}
+          className={cn('relative flex h-full items-start pl-2 pt-1', pathname === path ? 'bg-white' : 'bg-neutral-400 group-hover:bg-white')}
+        >
+          <h3 className={cn('font-display text-base uppercase leading-none text-black', duration < 15 && 'line-clamp-1 group-hover:line-clamp-none')}>
+            {title}
+          </h3>
+        </Link>
+      )}
     </li>
   )
 }

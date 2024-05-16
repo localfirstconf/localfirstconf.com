@@ -35,7 +35,7 @@ export default function SchedulePage() {
           Conference
         </h2>
       </Link>
-      <Link href="/schedule/hackday" className="group relative">
+      <Link href="/schedule/expo" className="group relative">
         <svg
           viewBox="0 0 609 689"
           fill="none"
