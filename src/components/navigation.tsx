@@ -39,7 +39,7 @@ export const Navigation = () => {
                   <Marker
                     className={cn(
                       'absolute -left-[3.75rem] top-1.5 h-3 text-blue transition-transform',
-                      href === pathname ? 'translate-x-0' : '-translate-x-10'
+                      pathname.startsWith(href) ? 'translate-x-0' : '-translate-x-10'
                     )}
                   />
                   <Link href={href} className="transition-colors duration-300 hover:text-neutral-300">

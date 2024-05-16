@@ -13,6 +13,10 @@ To connect with others at the conference, you can create an attendee profile rig
 
 We will then check your commit and merge it so that your profile is online and ready to connect.
 
+### Submitting your Profile via Email
+
+If you don't want to create a PR in this repo, feel free to send your profile information over via email to [lukas@lw.works](mailto:lukas@lw.works).
+
 ### Connecting your Profile
 
 After the Local-First Conf schedule is announced, you can connect your profile using your slug (name of the file; _firstname-lastname_) on the website.
