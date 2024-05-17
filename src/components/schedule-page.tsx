@@ -12,11 +12,13 @@ export const SchedulePage: FC<{sessions: (Omit<Session, 'speaker'> & {speaker: S
 
   return (
     <div
-      className={cn('pl-16 pt-24 transition-transform duration-300 ease-in-out', centered ? 'translate-x-1/2' : 'translate-x-0')}
-      style={{width: 'calc(50vw - 8rem)'}}
+      className={cn(
+        'width-schedule px-4 pt-24 duration-300 ease-in-out md:pl-16 md:pr-0 md:transition-transform',
+        centered ? 'md:translate-x-1/2' : 'md:translate-x-0'
+      )}
     >
-      <div className="mb-1 text-lg uppercase tracking-widest text-orange">Local-First Conf</div>
-      <h1 className="font-display text-7xl uppercase leading-none">Conference Day Schedule</h1>
+      <div className="mb-1 uppercase tracking-widest text-orange md:text-lg">Local-First Conf</div>
+      <h1 className="font-display text-4xl uppercase leading-none md:text-7xl">Conference Day Schedule</h1>
       <p className="mb-16 mt-8">
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
         voluptua.

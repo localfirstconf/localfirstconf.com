@@ -22,7 +22,7 @@ export const NotificationBar = () => {
   }, [time])
 
   return (
-    <div className="fixed top-0 z-20 flex h-8 w-full items-center justify-between bg-magenta px-8 text-xs text-black">
+    <div className="fixed top-0 z-20 flex h-8 w-full items-center justify-between bg-magenta px-4 text-xs text-black md:px-8">
       <div>
         {format(time, 'MMM dd, HH')}
         <span className="animate-blink">:</span>
@@ -32,7 +32,7 @@ export const NotificationBar = () => {
         <div>
           <span>Now: </span>
           <Link href={currentSessions[0].path} className="hover:underline">
-            {`${currentSessions[0].speaker?.name} - "${currentSessions[0].title}"`}
+            {`${currentSessions[0].speaker ? `${currentSessions[0].speaker.name} - "` : ''}${currentSessions[0].title}${currentSessions[0].speaker ? '"' : ''}`}
           </Link>
           {currentSessions.length > 1 && <span>{` + ${currentSessions.length - 1} other`}</span>}
         </div>
@@ -41,7 +41,7 @@ export const NotificationBar = () => {
         <div>
           <span>Next: </span>
           <Link href={nextSession.path} className="hover:underline">
-            {`${nextSession.speaker?.name}`}
+            {`${nextSession.speaker?.name ?? nextSession.title}`}
           </Link>
         </div>
       )}

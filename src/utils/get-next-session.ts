@@ -8,5 +8,6 @@ export const getNextSession = (currentDateTime: Date) => {
   if (!session) return null
 
   const speaker = allSpeakers.find((speaker) => speaker.slug === session.speaker)
+
   return {...session, speaker}
 }

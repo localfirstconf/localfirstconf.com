@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 export default function SchedulePage() {
   return (
-    <div className="grid w-full max-w-3xl grid-cols-2 gap-8 py-24">
+    <div className="grid w-full max-w-3xl grid-cols-2 gap-8 px-4 py-24 md:px-0">
       <div className="col-span-2 text-center">
-        <h1 className="font-display text-[5rem] uppercase leading-none">Schedule</h1>
+        <h1 className="font-display text-6xl uppercase leading-none md:text-[5rem]">Schedule</h1>
         <p className="mb-16 mt-8 text-center">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
           voluptua.
@@ -31,7 +31,7 @@ export default function SchedulePage() {
             d="M477.18 0.273804L620.5 213.979V612.235L98.9121 699.251L0.295166 123.308L477.18 0.273804ZM11.705 130.692L107.088 687.749L610.5 603.765V217.021L472.82 11.7262L11.705 130.692Z"
           />
         </svg>
-        <h2 className="absolute inset-0 flex items-center justify-center font-display text-5xl uppercase leading-none group-hover:text-black">
+        <h2 className="absolute inset-0 flex items-center justify-center font-display text-2xl uppercase leading-none group-hover:text-black md:text-5xl">
           Conference
         </h2>
       </Link>
@@ -56,7 +56,9 @@ export default function SchedulePage() {
             d="M201.216 0.364136L619 93.9966V598.866L530.818 700.535L0.5 580.998V306.507L201.216 0.364136ZM205.784 11.6359L10.5 309.493V573.002L527.182 689.465L609 595.134V102.003L205.784 11.6359Z"
           />
         </svg>
-        <h2 className="absolute inset-0 flex items-center justify-center font-display text-5xl uppercase leading-none group-hover:text-black">Expo Day</h2>
+        <h2 className="absolute inset-0 flex items-center justify-center font-display text-2xl uppercase leading-none group-hover:text-black md:text-5xl">
+          Expo Day
+        </h2>
       </Link>
     </div>
   )

@@ -15,13 +15,12 @@ export default function LinkAttendeePage() {
   }
 
   return (
-    <div className="w-full max-w-3xl gap-8 py-24">
+    <div className="w-full max-w-3xl gap-8 px-4 py-24 md:px-0">
       <h1 className="font-display text-4xl uppercase leading-none">Link your profile</h1>
-      {/* TODO: Link to Readme */}
       <div className="max-w-lg">
         <p className="my-8">
           To link your attendee profile here, enter your slug. If you don&apos;t have one, create it{' '}
-          <Link href="/" className="underline">
+          <Link href="https://github.com/localfirstconf/localfirstconf.com/tree/main/content/attendees#readme" className="underline">
             here
           </Link>
           .
@@ -34,10 +33,11 @@ export default function LinkAttendeePage() {
             placeholder="Your slug"
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
-            className="h-full grow rounded-full bg-transparent px-4 text-white placeholder-neutral-500 focus:outline-none"
+            className="h-full shrink grow rounded-full bg-transparent px-4 text-white placeholder-neutral-500 focus:outline-none"
           />
           <button type="submit" className="h-full shrink-0 rounded-full bg-magenta px-4 text-black hover:bg-white focus:bg-white focus:outline-none">
-            Link profile
+            <span>Link</span>
+            <span className="hidden md:inline"> profile</span>
           </button>
         </form>
       </div>

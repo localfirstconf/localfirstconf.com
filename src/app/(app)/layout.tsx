@@ -1,3 +1,4 @@
+import {MobileNavigation} from '@/components/mobile-navigation'
 import {Sidebar} from '@/components/sidebar'
 
 export default function Layout({
@@ -8,7 +9,8 @@ export default function Layout({
   return (
     <div className="flex">
       <Sidebar />
-      <main className="flex w-full grow justify-center pl-48">{children}</main>
+      <main className="flex w-full grow justify-center pb-12 md:pb-0 md:pl-48">{children}</main>
+      <MobileNavigation />
     </div>
   )
 }

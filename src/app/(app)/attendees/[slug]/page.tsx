@@ -18,8 +18,8 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
   const Content = useMDXComponent(attendee.body.code)
 
   return (
-    <div className="w-full max-w-3xl gap-8 py-24">
-      <div className="flex gap-16">
+    <div className="w-full max-w-3xl gap-8 px-4 py-24 md:px-0">
+      <div className="flex flex-col-reverse gap-x-16 gap-y-8 md:flex-row">
         <div>
           <h1 className="font-display text-5xl uppercase leading-none">{attendee.name}</h1>
           <div className="prose prose-sm prose-neutral prose-invert mt-8 text-neutral-400">
@@ -38,7 +38,7 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
           </svg>
         </div>
       </div>
-      <ul className="mt-16 flex gap-2">
+      <ul className="mt-16 flex flex-wrap gap-2">
         {attendee.email && (
           <li>
             <Link href={`mailto:${attendee.email}`} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">

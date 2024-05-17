@@ -6,4 +6,12 @@
   .text-balance {
     text-wrap: balance;
   }
+  .width-schedule {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .width-schedule {
+      width: calc(50vw - 8rem);
+    }
+  }
 }

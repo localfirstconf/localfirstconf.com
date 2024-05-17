@@ -23,10 +23,10 @@ export default function SessionPage({params: {slug}}: {params: {slug: string}}) 
       appear={true}
       show={true}
       enter="transition-all duration-300 ease-in-out"
-      enterFrom="translate-x-full opacity-0"
-      enterTo="translate-x-0 opacity-100"
+      enterFrom="translate-y-full md:translate-y-0 md:translate-x-full opacity-0"
+      enterTo="translate-y-0 translate-x-0 opacity-100"
     >
-      <div className="fixed inset-y-0 right-0 overflow-y-auto bg-white px-16 py-24 text-sm text-black" style={{width: 'calc(50vw - 8rem)'}}>
+      <div className="width-schedule fixed inset-y-0 right-0 overflow-y-auto bg-white px-4 py-24 text-sm text-black md:px-16">
         <Transition show={true} enter="transition-transform duration-300 ease-in-out" enterFrom="scale-80" enterTo="scale-100">
           <div className="flex flex-col">
             <div className="flex justify-between">
