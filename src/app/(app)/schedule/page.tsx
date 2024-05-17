@@ -6,8 +6,7 @@ export default function SchedulePage() {
       <div className="col-span-2 text-center">
         <h1 className="font-display text-6xl uppercase leading-none md:text-[5rem]">Schedule</h1>
         <p className="mb-16 mt-8 text-center">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-          voluptua.
+          Welcome to Local-First Conf 2024, taking place on May 30 (conference) and 31 (expo day) in Berlin, Germany. Choose a day below to see the schedule.
         </p>
       </div>
       <Link href="/schedule/conference" className="group relative">
