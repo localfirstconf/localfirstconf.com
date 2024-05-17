@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'Local-First Conf 2024'
   },
   description:
-    'Join us for the world’s first local-first conference. Connect with a rapidly-growing community in an intimate setting. Berlin 30th May 2024.'
+    'Join us for the world’s first local-first conference. Connect with a rapidly-growing community in an intimate setting. Berlin, May 30 and 31 2024.'
 }
 
 export default function RootLayout({
