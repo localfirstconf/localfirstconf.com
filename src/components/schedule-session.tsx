@@ -8,7 +8,7 @@ import {usePathname} from 'next/navigation'
 import {FC} from 'react'
 
 export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: Speaker}; firstStart: Date}> = ({session, firstStart}) => {
-  const {title, placeholder, start, duration, path} = session
+  const {title, speaker, placeholder, start, duration, path} = session
   const pathname = usePathname()
 
   return (
@@ -30,7 +30,10 @@ export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: 
           scroll={false}
           className={cn('relative flex h-full items-start pl-2 pt-1', pathname === path ? 'bg-white' : 'bg-neutral-400 group-hover:bg-white')}
         >
-          <h3 className={cn('font-display text-base uppercase leading-none text-black', duration < 15 && 'line-clamp-1')}>{title}</h3>
+          <h3 className={cn('font-display text-base uppercase leading-none text-black', duration < 15 && 'line-clamp-1')}>
+            <span>{title}</span>
+            <span className="opacity-50">{` – ${speaker.name}`}</span>
+          </h3>
         </Link>
       )}
     </li>

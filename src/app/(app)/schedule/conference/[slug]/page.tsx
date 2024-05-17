@@ -49,10 +49,6 @@ export default function SessionPage({params: {slug}}: {params: {slug: string}}) 
               <ClockIcon className="size-5" />
               <span>{`${format(new Date(session.start), 'MMM dd HH:mm')} - ${format(addMinutes(new Date(session.start), session.duration), 'HH:mm')}`}</span>
             </p>
-            <p className="mt-2 flex items-center gap-3 text-neutral-500">
-              <MapPinIcon className="size-5" />
-              <span>{session.location}</span>
-            </p>
             <div className="prose prose-sm prose-neutral mt-16 text-neutral-500">
               <Content />
             </div>
