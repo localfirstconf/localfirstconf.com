@@ -13,7 +13,7 @@ export const MobileNavigation: FC<{}> = ({}) => {
   }, [])
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 bg-white text-black md:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-50 bg-white text-black md:hidden">
       <ul className="relative grid grid-cols-4 py-2 text-center text-xs leading-none">
         <div className="absolute top-0 h-px w-full bg-neutral-400" />
         <li className="relative">
