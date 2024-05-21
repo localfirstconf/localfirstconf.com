@@ -10,4 +10,4 @@ If you don't have pnpm installed, follow [these instructions](https://pnpm.io/in
 
 ### Creating an Attendee Profile
 
-To connect with others at the conference, you can create an attendee profile in this Repository. To do so, follow the instructions in [./content/attendees](https://github.com/localfirstconf/localfirstconf.com/tree/main/content/attendees#readme).
+To connect with others at the conference, you can create an attendee profile in this Repository. To do so, follow the instructions in [./content/profiles](https://github.com/localfirstconf/localfirstconf.com/tree/main/content/profiles#readme).

@@ -12,6 +12,7 @@ export const Profile = defineDocumentType(() => ({
     email: {type: 'string', required: false},
     whatsapp: {type: 'string', required: false},
     twitter: {type: 'string', required: false},
+    mastodon: {type: 'string', required: false},
     linkedin: {type: 'string', required: false},
     instagram: {type: 'string', required: false},
     website: {type: 'string', required: false}

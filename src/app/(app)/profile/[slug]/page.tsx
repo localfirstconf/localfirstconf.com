@@ -1,5 +1,6 @@
 import {InstagramIcon} from '@/components/icons/instagram'
 import {LinkedinIcon} from '@/components/icons/linkedin'
+import {MastodonIcon} from '@/components/icons/mastodon'
 import {TwitterIcon} from '@/components/icons/twitter'
 import {WhatsappIcon} from '@/components/icons/whatsapp'
 import {EnvelopeIcon, GlobeAltIcon} from '@heroicons/react/20/solid'
@@ -58,6 +59,13 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
           <li>
             <Link href={profile.twitter} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
               <TwitterIcon className="size-5 text-black" />
+            </Link>
+          </li>
+        )}
+        {profile.mastodon && (
+          <li>
+            <Link href={profile.mastodon} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
+              <MastodonIcon className="size-5 text-black" />
             </Link>
           </li>
         )}

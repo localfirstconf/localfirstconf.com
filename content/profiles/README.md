@@ -33,6 +33,7 @@ With that, you can open your profile and show the embedded QR code to anyone you
 | `email`     | Your email address.                                                                                                                                                    |
 | `whatsapp`  | Your WhatsApp phone number.                                                                                                                                            |
 | `twitter`   | Link to your X/Twitter profile.                                                                                                                                        |
+| `mastodon`  | Link to your Mastodon profile.                                                                                                                                         |
 | `linkedin`  | Link to your LinkedIn profile.                                                                                                                                         |
 | `instagram` | Link to your Instagram profile.                                                                                                                                        |
 | `website`   | Link to your website.                                                                                                                                                  |
@@ -47,6 +48,7 @@ avatar: https://i.imgur.com/5rb25dS.jpeg
 email: john.doe@acme.com
 whatsapp: +00 123 4566789
 twitter: https://twitter.com/
+mastodon: https://mastodon.social/
 linkedin: https://linkedin.com/
 instagram: https://instagram.com/
 website: https://google.com/
