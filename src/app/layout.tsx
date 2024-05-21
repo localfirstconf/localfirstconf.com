@@ -8,7 +8,7 @@ const passionOne = Passion_One({subsets: ['latin'], weight: '400', preload: true
 const robotoMono = Roboto_Mono({subsets: ['latin'], weight: '400', preload: true, display: 'swap', variable: '--font-roboto-mono'})
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.VERCEL_URL ? 'https://localfirstconf.com' : 'http://localhost:3000'),
+  metadataBase: new URL(process.env.VERCEL_URL ? 'https://app.localfirstconf.com' : 'http://localhost:3000'),
   title: {
     template: '%s – Local-First Conf 2024',
     default: 'Local-First Conf 2024'
