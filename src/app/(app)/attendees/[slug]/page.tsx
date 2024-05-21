@@ -2,14 +2,13 @@ import {InstagramIcon} from '@/components/icons/instagram'
 import {LinkedinIcon} from '@/components/icons/linkedin'
 import {TwitterIcon} from '@/components/icons/twitter'
 import {WhatsappIcon} from '@/components/icons/whatsapp'
-import {cn} from '@/utils/cn'
-import {EnvelopeIcon, GlobeAltIcon, LinkIcon} from '@heroicons/react/20/solid'
-import {allAttendees, allSessions, allSpeakers} from 'contentlayer/generated'
-import {addMinutes, format} from 'date-fns'
+import {EnvelopeIcon, GlobeAltIcon} from '@heroicons/react/20/solid'
+import {allAttendees} from 'contentlayer/generated'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
+import QRCode from 'react-qr-code'
 
 export default function AttendeePage({params: {slug}}: {params: {slug: string}}) {
   const attendee = allAttendees.find((attendee) => attendee.slug === slug)
@@ -85,7 +84,14 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
           </li>
         )}
       </ul>
-      <Image src={`/qr/${attendee.slug}.png`} alt={`QR Code ${attendee.name}`} width={310} height={310} className="mt-16 size-64" />
+      <div className="mt-16 size-64">
+        <QRCode
+          size={256}
+          style={{height: 'auto', maxWidth: '100%', width: '100%'}}
+          value={`https://app.localfirstconf.com/attendees/${attendee.slug}`}
+          viewBox={`0 0 256 256`}
+        />
+      </div>
     </div>
   )
 }
