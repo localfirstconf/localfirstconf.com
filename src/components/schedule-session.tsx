@@ -1,13 +1,13 @@
 'use client'
 
 import {cn} from '@/utils/cn'
-import {Session, Speaker} from 'contentlayer/generated'
+import {Session, Profile} from 'contentlayer/generated'
 import {differenceInMinutes} from 'date-fns'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {FC} from 'react'
 
-export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: Speaker}; firstStart: Date}> = ({session, firstStart}) => {
+export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}; firstStart: Date}> = ({session, firstStart}) => {
   const {title, speaker, placeholder, start, duration, path} = session
   const pathname = usePathname()
 

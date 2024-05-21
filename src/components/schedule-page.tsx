@@ -2,11 +2,11 @@
 
 import {FC, ReactNode} from 'react'
 import {Schedule} from './schedule'
-import {Session, Speaker} from 'contentlayer/generated'
+import {Session, Profile} from 'contentlayer/generated'
 import {usePathname} from 'next/navigation'
 import {cn} from '@/utils/cn'
 
-export const SchedulePage: FC<{sessions: (Omit<Session, 'speaker'> & {speaker: Speaker})[]; children?: ReactNode}> = ({sessions, children}) => {
+export const SchedulePage: FC<{sessions: (Omit<Session, 'speaker'> & {speaker: Profile})[]; children?: ReactNode}> = ({sessions, children}) => {
   const pathname = usePathname()
   const centered = pathname.split('/').length === 3
 
