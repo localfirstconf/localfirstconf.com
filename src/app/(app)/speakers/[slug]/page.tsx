@@ -3,10 +3,20 @@ import {cn} from '@/utils/cn'
 import {LinkIcon} from '@heroicons/react/20/solid'
 import {allSessions, allSpeakers} from 'contentlayer/generated'
 import {addMinutes, format} from 'date-fns'
+import {Metadata} from 'next'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
+
+export async function generateMetadata({params: {slug}}: {params: {slug: string}}): Promise<Metadata> {
+  const speaker = allSpeakers.find((speaker) => speaker.slug === slug)
+  if (!speaker) notFound()
+
+  return {
+    title: `${speaker.name} – Local-First Conf 2024`
+  }
+}
 
 export default function SpeakerPage({params: {slug}}: {params: {slug: string}}) {
   const speaker = allSpeakers.find((speaker) => speaker.slug === slug)

@@ -6,11 +6,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
 import {Transition} from '@headlessui/react'
+import {Metadata} from 'next'
 
 const sessions = allSessions.map((session) => {
   const speaker = allSpeakers.find((speaker) => speaker.slug === session.speaker)!
   return {...session, speaker}
 })
+
+export async function generateMetadata({params: {slug}}: {params: {slug: string}}): Promise<Metadata> {
+  const session = sessions.find((session) => session.path === `/schedule/expo/${slug}`)
+  if (!session || session.placeholder) notFound()
+
+  return {
+    title: `${session.title} – Expo Day – Local-First Conf 2024`
+  }
+}
 
 export default function SessionPage({params: {slug}}: {params: {slug: string}}) {
   const session = sessions.find((session) => session.path === `/schedule/expo/${slug}`)
