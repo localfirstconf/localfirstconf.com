@@ -18,6 +18,17 @@ export async function generateMetadata({params: {slug}}: {params: {slug: string}
   }
 }
 
+export async function generateStaticParams() {
+  return sessions
+    .filter((session) => session.path.startsWith('/schedule/conference'))
+    .map((session) => {
+      const segments = session.path.split('/')
+      return {
+        slug: segments[segments.length - 1]
+      }
+    })
+}
+
 export default function SessionPage({params: {slug}}: {params: {slug: string}}) {
   const session = sessions.find((session) => session.path === `/schedule/conference/${slug}`)
   if (!session || session.placeholder) notFound()
