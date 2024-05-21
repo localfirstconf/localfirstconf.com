@@ -22,27 +22,35 @@ export const NotificationBar = () => {
   }, [time])
 
   return (
-    <div className="fixed top-0 z-20 flex h-8 w-full items-center justify-between bg-magenta px-4 text-xs text-black md:px-8">
-      <div>
+    <div className="fixed top-0 z-20 flex h-auto min-h-8 w-full flex-wrap items-center justify-between bg-magenta px-4 py-1 text-xs text-black sm:h-8 md:px-8">
+      <div className="line-clamp-1 whitespace-nowrap">
         {format(time, 'MMM dd, HH')}
         <span className="animate-blink">:</span>
         {format(time, 'mm')}
       </div>
       {currentSessions?.length > 0 && (
-        <div>
+        <div className="line-clamp-1 whitespace-nowrap">
           <span>Now: </span>
-          <Link href={currentSessions[0].path} className="hover:underline">
-            {`${currentSessions[0].speaker ? `${currentSessions[0].speaker.name} - "` : ''}${currentSessions[0].title}${currentSessions[0].speaker ? '"' : ''}`}
-          </Link>
+          {currentSessions[0].placeholder ? (
+            <span>{`${currentSessions[0].speaker ? `${currentSessions[0].speaker.name} - "` : ''}${currentSessions[0].title}${currentSessions[0].speaker ? '"' : ''}`}</span>
+          ) : (
+            <Link href={currentSessions[0].path} className="hover:underline">
+              {`${currentSessions[0].speaker ? `${currentSessions[0].speaker.name} - "` : ''}${currentSessions[0].title}${currentSessions[0].speaker ? '"' : ''}`}
+            </Link>
+          )}
           {currentSessions.length > 1 && <span>{` + ${currentSessions.length - 1} other`}</span>}
         </div>
       )}
       {nextSession && (
-        <div>
+        <div className="line-clamp-1 whitespace-nowrap">
           <span>Next: </span>
-          <Link href={nextSession.path} className="hover:underline">
-            {`${nextSession.speaker?.name ?? nextSession.title}`}
-          </Link>
+          {nextSession.placeholder ? (
+            <span>{`${nextSession.speaker?.name ?? nextSession.title}`}</span>
+          ) : (
+            <Link href={nextSession.path} className="hover:underline">
+              {`${nextSession.speaker?.name ?? nextSession.title}`}
+            </Link>
+          )}
         </div>
       )}
     </div>
