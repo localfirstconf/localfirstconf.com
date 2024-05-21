@@ -37,7 +37,7 @@ export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Sp
                   <XMarkIcon className="size-6 text-neutral-500" />
                 </Link>
               </div>
-              <h1 className="mt-8 font-display text-4xl uppercase leading-none">{session.title}</h1>
+              <h1 className="mt-8 font-display text-4xl leading-none">{session.title}</h1>
               <p className="mt-8 flex items-center gap-3 text-blue">
                 <ClockIcon className="size-5" />
                 <span>{`${format(new Date(session.start), 'MMM dd HH:mm')} - ${format(addMinutes(new Date(session.start), session.duration), 'HH:mm')}`}</span>

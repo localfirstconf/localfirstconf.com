@@ -18,9 +18,7 @@ export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: 
     >
       {placeholder ? (
         <div className="relative flex h-full items-start border border-neutral-400 bg-neutral-800 pl-2 pt-1">
-          <h3
-            className={cn('font-display text-base uppercase leading-none text-neutral-400', duration < 15 && 'line-clamp-1 group-hover:line-clamp-none')}
-          >
+          <h3 className={cn('font-display text-base leading-none text-neutral-400', duration < 15 && 'line-clamp-1 group-hover:line-clamp-none')}>
             {title}
           </h3>
         </div>
@@ -28,11 +26,11 @@ export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: 
         <Link
           href={path}
           scroll={false}
-          className={cn('relative flex h-full items-start pl-2 pt-1', pathname === path ? 'bg-white' : 'bg-neutral-400 group-hover:bg-white')}
+          className={cn('relative flex h-full items-start px-2 pt-1', pathname === path ? 'bg-white' : 'bg-neutral-400 group-hover:bg-white')}
         >
-          <h3 className={cn('font-display text-base uppercase leading-none text-black', duration < 15 && 'line-clamp-1')}>
-            <span>{title}</span>
-            <span className="opacity-50">{` – ${speaker.name}`}</span>
+          <h3 className={cn('leading-none text-black', duration < 15 && 'line-clamp-1')}>
+            <span className="font-display text-base leading-none">{title}</span>
+            <span className="text-xs opacity-75">{` ${speaker.name}`}</span>
           </h3>
         </Link>
       )}

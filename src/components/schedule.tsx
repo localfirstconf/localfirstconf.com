@@ -2,7 +2,8 @@
 
 import {cn} from '@/utils/cn'
 import {Session, Speaker} from 'contentlayer/generated'
-import {addHours, addMinutes, eachHourOfInterval, format, interval, startOfHour} from 'date-fns'
+import {addHours, addMinutes, eachHourOfInterval, interval, startOfHour} from 'date-fns'
+import {format} from 'date-fns-tz'
 import {ScheduleSession} from './schedule-session'
 import {CurrentTimeMarker} from './current-time-marker'
 
@@ -16,7 +17,7 @@ export const Schedule: React.FC<{sessions: (Omit<Session, 'speaker'> & {speaker:
       <div className="">
         {hours.map((date, index) => (
           <div key={index} className={cn('h-20 border-orange text-xs text-orange', index === hours.length - 1 ? 'border-t' : 'mb-20 border-y')}>
-            {format(date, 'HH:mm')}
+            {format(date, 'HH:mm', {timeZone: 'America/New_York'})}
           </div>
         ))}
       </div>
