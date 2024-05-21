@@ -3,7 +3,7 @@
 import {Drawer} from 'vaul'
 import {Transition} from '@headlessui/react'
 import {ClockIcon, XMarkIcon} from '@heroicons/react/20/solid'
-import {Speaker, Session} from 'contentlayer/generated'
+import {Profile, Session} from 'contentlayer/generated'
 import {addMinutes, format} from 'date-fns'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
@@ -12,7 +12,7 @@ import {FC, useState} from 'react'
 import {useWindowWidth} from '@/hooks/use-window-width'
 import {useRouter} from 'next/navigation'
 
-export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Speaker}}> = ({session}) => {
+export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({session}) => {
   const [snappoint, setSnapPoint] = useState<number>(1)
   const Content = useMDXComponent(session.body.code)
   const router = useRouter()
@@ -35,11 +35,16 @@ export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Spe
             <Link href={`/speakers/${session.speaker.slug}`} className="group/speaker flex items-center gap-2">
               <div className="relative size-12">
                 <Image src={session.speaker.avatar} alt={session.speaker.name} fill className="object-contain object-left" />
+                {session.speaker.avatar.startsWith('https://') && (
+                  <svg viewBox="0 0 689 689" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 fill-current text-white">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
+                  </svg>
+                )}
               </div>
               <div className="leading-tight">
                 <span className="group-hover/speaker:underline">{session.speaker.name}</span>
                 <br />
-                <span className="text-neutral-500">{session.speaker.attributes[0]}</span>
+                <span className="text-neutral-500">{session.speaker.role}</span>
               </div>
             </Link>
             <h1 className="mt-8 font-display text-4xl leading-none">{session.title}</h1>

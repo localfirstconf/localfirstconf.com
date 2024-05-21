@@ -1,11 +1,11 @@
-import {allSessions, allSpeakers} from 'contentlayer/generated'
+import {allSessions, allProfiles} from 'contentlayer/generated'
 import {notFound} from 'next/navigation'
 import {DesktopDrawer} from '@/components/desktop-drawer'
 import {MobileDrawer} from '@/components/mobile-drawer'
 import {Metadata} from 'next'
 
 const sessions = allSessions.map((session) => {
-  const speaker = allSpeakers.find((speaker) => speaker.slug === session.speaker)!
+  const speaker = allProfiles.find((profile) => profile.slug === session.speaker)!
   return {...session, speaker}
 })
 

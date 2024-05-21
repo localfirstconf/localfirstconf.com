@@ -11,7 +11,7 @@ export default function LinkAttendeePage() {
   const linkProfile: FormEventHandler = (e) => {
     e.preventDefault()
     if (slug) localStorage.setItem('attendee-slug', slug)
-    router.push(`/attendees/${slug}`)
+    router.push(`/profile/${slug}`)
   }
 
   return (
@@ -20,7 +20,7 @@ export default function LinkAttendeePage() {
       <div className="max-w-lg">
         <p className="my-8">
           To link your attendee profile here, enter your slug. If you don&apos;t have one, create it{' '}
-          <Link href="https://github.com/localfirstconf/localfirstconf.com/tree/main/content/attendees#readme" className="underline">
+          <Link href="https://github.com/localfirstconf/localfirstconf.com/tree/main/content/profile#readme" className="underline">
             here
           </Link>
           .

@@ -1,5 +1,5 @@
-import {ClockIcon, MapPinIcon, XMarkIcon} from '@heroicons/react/20/solid'
-import {allSessions, allSpeakers} from 'contentlayer/generated'
+import {ClockIcon, XMarkIcon} from '@heroicons/react/20/solid'
+import {allSessions, allProfiles} from 'contentlayer/generated'
 import {addMinutes, format} from 'date-fns'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
@@ -9,7 +9,7 @@ import {Transition} from '@headlessui/react'
 import {Metadata} from 'next'
 
 const sessions = allSessions.map((session) => {
-  const speaker = allSpeakers.find((speaker) => speaker.slug === session.speaker)!
+  const speaker = allProfiles.find((profile) => profile.slug === session.speaker)!
   return {...session, speaker}
 })
 
@@ -47,7 +47,7 @@ export default function SessionPage({params: {slug}}: {params: {slug: string}}) 
                 <div className="leading-tight">
                   <span className="group-hover/speaker:underline">{session.speaker.name}</span>
                   <br />
-                  <span className="text-neutral-500">{session.speaker.attributes[0]}</span>
+                  <span className="text-neutral-500">{session.speaker.role}</span>
                 </div>
               </Link>
               <Link href="/schedule/expo" scroll={false}>

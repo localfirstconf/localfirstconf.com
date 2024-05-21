@@ -1,4 +1,4 @@
-import {allSessions, allSpeakers} from 'contentlayer/generated'
+import {allProfiles, allSessions} from 'contentlayer/generated'
 import {addMinutes, interval, isWithinInterval} from 'date-fns'
 
 export const getCurrentSessions = (currentDateTime: Date) => {
@@ -9,7 +9,7 @@ export const getCurrentSessions = (currentDateTime: Date) => {
     })
     .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
     .map((session) => {
-      const speaker = allSpeakers.find((speaker) => speaker.slug === session.speaker)
+      const speaker = allProfiles.find((profile) => profile.slug === session.speaker)!
       return {...session, speaker}
     })
 }

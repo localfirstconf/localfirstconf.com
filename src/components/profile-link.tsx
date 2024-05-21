@@ -12,7 +12,7 @@ export const ProfileLink = () => {
   }, [])
 
   return (
-    <Link href={`/attendees/${slug ? slug : 'link'}`} className="group flex items-center gap-4">
+    <Link href={`/profile/${slug ? slug : 'link'}`} className="group flex items-center gap-4">
       <div className="relative">
         <svg
           viewBox="0 0 28 32"

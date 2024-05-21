@@ -1,13 +1,14 @@
 import {defineDocumentType} from 'contentlayer/source-files'
 
-export const Attendee = defineDocumentType(() => ({
-  name: 'Attendee',
-  filePathPattern: `attendees/*.mdx`,
+export const Profile = defineDocumentType(() => ({
+  name: 'Profile',
+  filePathPattern: `profiles/*.mdx`,
   contentType: 'mdx',
   fields: {
     name: {type: 'string', required: true},
     role: {type: 'string', required: true},
     avatar: {type: 'string', required: true},
+    speaker: {type: 'boolean', required: false, default: false},
     email: {type: 'string', required: false},
     whatsapp: {type: 'string', required: false},
     twitter: {type: 'string', required: false},
@@ -18,7 +19,12 @@ export const Attendee = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (attendee: any) => attendee._raw.sourceFileName.replace('.mdx', '')
+      resolve: (profile: any) =>
+        profile.speaker ? profile._raw.sourceFileName.replace('.mdx', '').split('-').slice(1).join('-') : profile._raw.sourceFileName.replace('.mdx', '')
+    },
+    order: {
+      type: 'number',
+      resolve: (profile: any) => (profile.speaker ? profile._raw.sourceFileName.replace('.mdx', '').split('-')[0] : 999)
     }
   }
 }))

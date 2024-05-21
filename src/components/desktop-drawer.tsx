@@ -1,13 +1,13 @@
 import {Transition} from '@headlessui/react'
 import {ClockIcon, XMarkIcon} from '@heroicons/react/20/solid'
-import {Speaker, Session} from 'contentlayer/generated'
+import {Profile, Session} from 'contentlayer/generated'
 import {addMinutes, format} from 'date-fns'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
 import {FC} from 'react'
 
-export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Speaker}}> = ({session}) => {
+export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({session}) => {
   const Content = useMDXComponent(session.body.code)
 
   return (
@@ -23,14 +23,19 @@ export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Sp
           <Transition show={true} enter="transition-transform duration-300 ease-in-out" enterFrom="scale-80" enterTo="scale-100">
             <div className="flex flex-col">
               <div className="flex justify-between">
-                <Link href={`/speakers/${session.speaker.slug}`} className="group/speaker flex items-center gap-2">
+                <Link href={`/profile/${session.speaker.slug}`} className="group/speaker flex items-center gap-2">
                   <div className="relative size-12">
                     <Image src={session.speaker.avatar} alt={session.speaker.name} fill className="object-contain object-left" />
+                    {session.speaker.avatar.startsWith('https://') && (
+                      <svg viewBox="0 0 689 689" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 fill-current text-white">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
+                      </svg>
+                    )}
                   </div>
                   <div className="leading-tight">
                     <span className="group-hover/speaker:underline">{session.speaker.name}</span>
                     <br />
-                    <span className="text-neutral-500">{session.speaker.attributes[0]}</span>
+                    <span className="text-neutral-500">{session.speaker.role}</span>
                   </div>
                 </Link>
                 <Link href="/schedule/conference" scroll={false}>

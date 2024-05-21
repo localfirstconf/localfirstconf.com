@@ -1,10 +1,10 @@
 import {SchedulePage} from '@/components/schedule-page'
-import {allSessions, allSpeakers} from 'contentlayer/generated'
+import {allProfiles, allSessions} from 'contentlayer/generated'
 
 const sessions = allSessions
   .filter((session) => session.category === 'expo')
   .map((session) => {
-    const speaker = allSpeakers.find((speaker) => speaker.slug === session.speaker)!
+    const speaker = allProfiles.find((profile) => profile.slug === session.speaker)!
     return {...session, speaker}
   })
   .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
