@@ -11,6 +11,12 @@ import Link from 'next/link'
 import {notFound} from 'next/navigation'
 import QRCode from 'react-qr-code'
 
+export async function generateStaticParams() {
+  return allProfiles.map((profile) => ({
+    slug: profile.slug
+  }))
+}
+
 export default function AttendeePage({params: {slug}}: {params: {slug: string}}) {
   const profile = allProfiles.find((profile) => profile.slug === slug)
   if (!profile) notFound()
