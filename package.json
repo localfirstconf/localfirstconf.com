@@ -21,6 +21,7 @@
     "prettier-plugin-tailwindcss": "^0.5.13",
     "react": "^18",
     "react-dom": "^18",
+    "react-qr-code": "^2.0.13",
     "tailwind-merge": "^2.2.2",
     "vaul": "^0.9.1"
   },
