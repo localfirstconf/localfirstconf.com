@@ -16,7 +16,7 @@ export const Schedule: React.FC<{sessions: (Omit<Session, 'speaker'> & {speaker:
     <div className="relative">
       <div className="">
         {hours.map((date, index) => (
-          <div key={index} className={cn('h-20 border-orange text-xs text-orange', index === hours.length - 1 ? 'border-t' : 'mb-20 border-y')}>
+          <div key={index} className={cn('h-20 border-white text-xs text-white', index === hours.length - 1 ? 'border-t' : 'mb-20 border-y')}>
             {format(date, 'HH:mm', {timeZone: 'America/New_York'})}
           </div>
         ))}

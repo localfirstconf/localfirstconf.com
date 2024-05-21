@@ -1,5 +1,12 @@
 import {defineDocumentType} from 'contentlayer/source-files'
 
+const colors = [
+  {bg: '#E68039', text: '#000000'},
+  {bg: '#3581F6', text: '#FFFFFF'},
+  {bg: '#107506', text: '#FFFFFF'},
+  {bg: '#EF8AF9', text: '#000000'}
+]
+
 export const Session = defineDocumentType(() => ({
   name: 'Session',
   filePathPattern: `sessions/**/*.mdx`,
@@ -29,6 +36,10 @@ export const Session = defineDocumentType(() => ({
     category: {
       type: 'string',
       resolve: (session: any) => session._raw.flattenedPath.split('/')[1]
+    },
+    colors: {
+      type: 'json',
+      resolve: (session: any) => colors[Math.floor(Math.random() * colors.length)]
     }
   }
 }))
