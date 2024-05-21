@@ -21,7 +21,10 @@ export default function Layout({
         <h1 className="font-display text-4xl uppercase leading-none md:text-7xl">Conference Day Schedule</h1>
         <p className="mb-16 mt-8">
           The conference day is on May 30, 2024. The venue is Schankhalle Pfefferberg located at{' '}
-          <a href="https://maps.app.goo.gl/sFm1EMsFPkQAHt1b7">Schönhauser Allee 176, 10119 Berlin</a>.
+          <a href="https://maps.app.goo.gl/sFm1EMsFPkQAHt1b7" target="_blank" rel="noreferrer" className="underline">
+            Schönhauser Allee 176, 10119 Berlin
+          </a>
+          .
         </p>
       </SchedulePage>
       {children}
