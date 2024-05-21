@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "short_name": "",
+  "theme_color": "#EF8AF9",
+  "background_color": "#000000",
+  "display": "browser",
+  "orientation": "any",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ]
+}

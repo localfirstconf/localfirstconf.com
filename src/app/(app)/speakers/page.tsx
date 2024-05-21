@@ -18,7 +18,7 @@ export default function SpeakersPage() {
                   <Image src={avatar} alt={name} fill className="object-contain object-center" />
                   {avatar.startsWith('https://') && (
                     <svg viewBox="0 0 689 689" xmlns="http://www.w3.org/2000/svg" className="absolute -inset-px fill-current text-black">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
+                      <path fillRule="evenodd" clipRule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
                     </svg>
                   )}
                 </div>
