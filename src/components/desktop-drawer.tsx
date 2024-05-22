@@ -6,6 +6,7 @@ import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
 import {FC} from 'react'
+import {SessionFeedback} from './session-feedback'
 
 export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({session}) => {
   const Content = useMDXComponent(session.body.code)
@@ -28,7 +29,7 @@ export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pr
                     <Image src={session.speaker.avatar} alt={session.speaker.name} fill className="object-contain object-left" />
                     {session.speaker.avatar.startsWith('https://') && (
                       <svg viewBox="0 0 689 689" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 fill-current text-white">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
                       </svg>
                     )}
                   </div>
@@ -50,6 +51,7 @@ export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pr
               <div className="prose prose-sm prose-neutral mt-16 text-neutral-500">
                 <Content />
               </div>
+              <SessionFeedback sessionTitle={session.title} />
             </div>
           </Transition>
         </div>

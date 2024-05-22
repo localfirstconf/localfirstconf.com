@@ -1,19 +1,18 @@
 'use client'
 
 import {Drawer} from 'vaul'
-import {Transition} from '@headlessui/react'
-import {ClockIcon, XMarkIcon} from '@heroicons/react/20/solid'
+import {ClockIcon} from '@heroicons/react/20/solid'
 import {Profile, Session} from 'contentlayer/generated'
 import {addMinutes, format} from 'date-fns'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
-import {FC, useState} from 'react'
+import {FC} from 'react'
 import {useWindowWidth} from '@/hooks/use-window-width'
 import {useRouter} from 'next/navigation'
+import {SessionFeedback} from './session-feedback'
 
 export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({session}) => {
-  const [snappoint, setSnapPoint] = useState<number>(1)
   const Content = useMDXComponent(session.body.code)
   const router = useRouter()
   const windowWidth = useWindowWidth()
@@ -37,7 +36,7 @@ export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pro
                 <Image src={session.speaker.avatar} alt={session.speaker.name} fill className="object-contain object-left" />
                 {session.speaker.avatar.startsWith('https://') && (
                   <svg viewBox="0 0 689 689" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 fill-current text-white">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M233 0H0V689H558.5H689V0H233ZM233 0L643.5 92V591L558.5 689L35 571V302L233 0Z" />
                   </svg>
                 )}
               </div>
@@ -55,6 +54,7 @@ export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pro
             <div className="prose prose-sm prose-neutral mt-12 text-neutral-500">
               <Content />
             </div>
+            <SessionFeedback sessionTitle={session.title} />
           </div>
         </Drawer.Content>
       </Drawer.Portal>
