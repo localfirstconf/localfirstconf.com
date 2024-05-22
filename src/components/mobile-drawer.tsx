@@ -1,19 +1,18 @@
 'use client'
 
 import {Drawer} from 'vaul'
-import {Transition} from '@headlessui/react'
-import {ClockIcon, XMarkIcon} from '@heroicons/react/20/solid'
+import {ClockIcon} from '@heroicons/react/20/solid'
 import {Profile, Session} from 'contentlayer/generated'
 import {addMinutes, format} from 'date-fns'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
-import {FC, useState} from 'react'
+import {FC} from 'react'
 import {useWindowWidth} from '@/hooks/use-window-width'
 import {useRouter} from 'next/navigation'
+import {SessionFeedback} from './session-feedback'
 
 export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({session}) => {
-  const [snappoint, setSnapPoint] = useState<number>(1)
   const Content = useMDXComponent(session.body.code)
   const router = useRouter()
   const windowWidth = useWindowWidth()
@@ -55,6 +54,7 @@ export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pro
             <div className="prose prose-sm prose-neutral mt-12 text-neutral-500">
               <Content />
             </div>
+            <SessionFeedback sessionTitle={session.title} />
           </div>
         </Drawer.Content>
       </Drawer.Portal>

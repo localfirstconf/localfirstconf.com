@@ -6,6 +6,7 @@ import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
 import {FC} from 'react'
+import {SessionFeedback} from './session-feedback'
 
 export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({session}) => {
   const Content = useMDXComponent(session.body.code)
@@ -50,6 +51,7 @@ export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pr
               <div className="prose prose-sm prose-neutral mt-16 text-neutral-500">
                 <Content />
               </div>
+              <SessionFeedback sessionTitle={session.title} />
             </div>
           </Transition>
         </div>
