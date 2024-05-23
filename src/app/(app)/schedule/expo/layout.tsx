@@ -15,7 +15,7 @@ export default function Layout({
   return (
     <div className="flex w-full gap-16">
       <div className={cn('duration-300 ease-in-out md:transition-transform', centered ? 'md:translate-x-1/2' : 'md:translate-x-0')}>
-        <SchedulePage>
+        <SchedulePage type="expo">
           <div className="mb-1 uppercase tracking-widest text-orange md:text-lg">Local-First Conf</div>
           <h1 className="font-display text-4xl uppercase leading-none md:text-7xl">Expo Day Schedule</h1>
           <p className="mb-16 mt-8">
