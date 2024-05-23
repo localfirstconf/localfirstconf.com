@@ -4,8 +4,10 @@ import {MastodonIcon} from '@/components/icons/mastodon'
 import {TwitterIcon} from '@/components/icons/twitter'
 import {WhatsappIcon} from '@/components/icons/whatsapp'
 import {SpeakerBadge} from '@/components/speaker-badge'
+import {cn} from '@/utils/cn'
 import {EnvelopeIcon, GlobeAltIcon} from '@heroicons/react/20/solid'
-import {allProfiles} from 'contentlayer/generated'
+import {allProfiles, allSessions} from 'contentlayer/generated'
+import {addMinutes, format} from 'date-fns'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -23,6 +25,7 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
   if (!profile) notFound()
 
   const Content = useMDXComponent(profile.body.code)
+  const sessions = allSessions.filter((session) => session.speaker === slug)
 
   return (
     <div className="w-full max-w-3xl gap-8 px-4 py-24 md:px-0">
@@ -107,6 +110,35 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
           viewBox={`0 0 256 256`}
         />
       </div>
+      {sessions.length > 0 && (
+        <>
+          <h2 className="mt-16 font-display text-4xl uppercase leading-none md:mt-24">Sessions</h2>
+          <ul className="mt-4 space-y-4">
+            {sessions.map(({title, start, duration, path}, index) => (
+              <li key={index}>
+                <Link href={path} className="block bg-neutral-300 p-5 pb-6 text-sm text-neutral-500 transition-colors duration-150 hover:bg-white">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3
+                        className={cn(
+                          'font-display text-xl uppercase leading-none text-black md:text-2xl',
+                          duration < 15 && 'line-clamp-1 group-hover:line-clamp-none'
+                        )}
+                      >
+                        <Link href={path}>{title}</Link>
+                      </h3>
+                    </div>
+                    <div className="shrink-0 text-right leading-tight">
+                      <div>{`${format(new Date(start), 'HH:mm')}`}</div>
+                      <div>{format(addMinutes(new Date(start), duration), 'HH:mm')}</div>
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   )
 }
