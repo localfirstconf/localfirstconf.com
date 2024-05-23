@@ -73,7 +73,7 @@ export default function LinkAttendeePage() {
                 value={person}
                 className="group flex h-10 items-center gap-2 rounded-full px-4 data-[focus]:bg-neutral-700"
               >
-                <span>{person.name}</span>
+                <span className="text-sm leading-none">{person.name}</span>
                 <CheckIcon className="invisible size-5 group-data-[selected]:visible" />
               </ComboboxOption>
             ))}
