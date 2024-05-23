@@ -1,15 +1,17 @@
 'use client'
 
 import Link from 'next/link'
+import {usePathname} from 'next/navigation'
 import {useEffect, useState} from 'react'
 
 export const ProfileLink = () => {
   const [slug, setSlug] = useState<string>('')
+  const pathname = usePathname()
 
   useEffect(() => {
     const slug = localStorage.getItem('attendee-slug')
     if (slug) setSlug(slug)
-  }, [])
+  }, [pathname])
 
   return (
     <Link href={`/profile/${slug ? slug : 'link'}`} className="group flex items-center gap-4">
