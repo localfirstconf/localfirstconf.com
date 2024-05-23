@@ -26,8 +26,8 @@ export const ScheduleSession: FC<{session: Omit<Session, 'speaker'> & {speaker: 
         <Link
           href={path}
           scroll={false}
-          className={cn('relative flex h-full items-start px-2 pt-1', pathname === path ? 'bg-white' : '!group-hover:bg-white')}
-          style={{backgroundColor: session.colors.bg, color: session.colors.text}}
+          className={cn('relative flex h-full items-start px-2 pt-1 transition-transform duration-150 hover:scale-[1.03]')}
+          style={{backgroundColor: pathname === path ? '#ffffff' : session.colors.bg, color: pathname === path ? '#000000' : session.colors.text}}
         >
           <h3 className={cn('leading-none', duration < 15 && 'line-clamp-1')}>
             <span className="font-display text-base leading-none">{title}</span>
