@@ -3,6 +3,7 @@ import {LinkedinIcon} from '@/components/icons/linkedin'
 import {MastodonIcon} from '@/components/icons/mastodon'
 import {TwitterIcon} from '@/components/icons/twitter'
 import {WhatsappIcon} from '@/components/icons/whatsapp'
+import {SpeakerBadge} from '@/components/speaker-badge'
 import {EnvelopeIcon, GlobeAltIcon} from '@heroicons/react/20/solid'
 import {allProfiles} from 'contentlayer/generated'
 import {useMDXComponent} from 'next-contentlayer/hooks'
@@ -28,6 +29,7 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
       <div className="flex flex-col-reverse gap-x-16 gap-y-8 md:flex-row">
         <div>
           <h1 className="font-display text-5xl uppercase leading-none">{profile.name}</h1>
+          {profile.speaker && <SpeakerBadge />}
           <div className="prose prose-sm prose-neutral prose-invert mt-8 text-neutral-400">
             <Content />
           </div>
