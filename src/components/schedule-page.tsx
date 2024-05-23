@@ -1,22 +1,18 @@
-'use client'
-
 import {FC, ReactNode} from 'react'
 import {Schedule} from './schedule'
-import {Session, Profile} from 'contentlayer/generated'
-import {usePathname} from 'next/navigation'
-import {cn} from '@/utils/cn'
+import {allSessions, allProfiles} from 'contentlayer/generated'
 
-export const SchedulePage: FC<{sessions: (Omit<Session, 'speaker'> & {speaker: Profile})[]; children?: ReactNode}> = ({sessions, children}) => {
-  const pathname = usePathname()
-  const centered = pathname.split('/').length === 3
+const sessions = allSessions
+  .filter((session) => session.category === 'conference')
+  .map((session) => {
+    const speaker = allProfiles.find((profile) => profile.slug === session.speaker)!
+    return {...session, speaker}
+  })
+  .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
 
+export const SchedulePage: FC<{children?: ReactNode}> = ({children}) => {
   return (
-    <div
-      className={cn(
-        'width-schedule px-4 pt-24 duration-300 ease-in-out md:pl-16 md:pr-0 md:transition-transform',
-        centered ? 'md:translate-x-1/2' : 'md:translate-x-0'
-      )}
-    >
+    <div className="width-schedule px-4 pt-24 md:pl-16 md:pr-0">
       {children}
       <Schedule sessions={sessions} />
     </div>
