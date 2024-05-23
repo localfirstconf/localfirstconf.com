@@ -43,7 +43,7 @@ export const MobileNavigation: FC<{}> = ({}) => {
           </Link>
         </li>
         <li className="relative">
-          <Link href={`/attendees/${slug ? slug : 'link'}`}>
+          <Link href={`/profile/${slug ? slug : 'link'}`}>
             <UserIcon className="mx-auto mb-2 size-6" />
             <span>
               Attendee
