@@ -5,13 +5,16 @@ import {CheckIcon} from '@heroicons/react/20/solid'
 import {allProfiles} from 'contentlayer/generated'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 const profiles = allProfiles.map((profile) => ({slug: profile.slug, name: profile.name}))
 
 export default function LinkAttendeePage() {
-  const [selectedPerson, setSelectedPerson] = useState()
+  const [linkedProfile, setLinkedProfile] = useState<string>('')
+  const [selectedProfile, setselectedProfile] = useState<{slug: string; name: string} | null>(null)
   const [query, setQuery] = useState('')
+  const [error, setError] = useState(false)
+  const router = useRouter()
 
   const filteredPeople =
     query === ''
@@ -20,9 +23,28 @@ export default function LinkAttendeePage() {
           return profile.name.toLowerCase().includes(query.toLowerCase())
         })
 
+  const linkProfile = () => {
+    setError(false)
+    if (!selectedProfile) {
+      setError(true)
+      return
+    }
+    localStorage.setItem('attendee-slug', selectedProfile.slug)
+    router.push(`/profile/${selectedProfile.slug}`)
+  }
+
+  useEffect(() => {
+    const slug = localStorage.getItem('attendee-slug')
+    if (!slug) return
+    setLinkedProfile(profiles.find((profile) => profile.slug === slug)?.name ?? '')
+  }, [])
+
   return (
     <div className="w-full max-w-3xl gap-8 px-4 py-24 md:px-0">
       <h1 className="font-display text-4xl uppercase leading-none">Link your profile</h1>
+      {linkedProfile && (
+        <p className="mt-8 max-w-lg text-orange">You have already linked this profile: {linkedProfile}. If you link another one, this will be replaced.</p>
+      )}
       <p className="my-8 max-w-lg">
         To link your attendee profile here, enter your slug. If you don&apos;t have one, create it{' '}
         <Link
@@ -35,9 +57,9 @@ export default function LinkAttendeePage() {
         </Link>
         . Your name will appear here after we merge your PR.
       </p>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {/* @ts-ignore */}
-        <Combobox value={selectedPerson} onChange={setSelectedPerson} onClose={() => setQuery('')}>
+        <Combobox value={selectedProfile} onChange={setselectedProfile} onClose={() => setQuery('')}>
           <ComboboxInput
             aria-label="Profile"
             displayValue={(person: any) => person?.name}
@@ -57,8 +79,11 @@ export default function LinkAttendeePage() {
             ))}
           </ComboboxOptions>
         </Combobox>
-        <button className="h-12 rounded-full bg-magenta px-6 text-black">Link profile</button>
+        <button onClick={linkProfile} className="h-12 rounded-full bg-magenta px-6 text-black">
+          Link profile
+        </button>
       </div>
+      {error && <p className="mt-4 text-xs text-magenta">Please select your Profile first.</p>}
     </div>
   )
 }
