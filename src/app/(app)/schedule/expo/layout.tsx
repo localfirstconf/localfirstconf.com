@@ -2,6 +2,7 @@
 
 import {SchedulePage} from '@/components/schedule-page'
 import {cn} from '@/utils/cn'
+import {Transition} from '@headlessui/react'
 import {usePathname} from 'next/navigation'
 
 export default function Layout({
@@ -27,7 +28,14 @@ export default function Layout({
           </p>
         </SchedulePage>
       </div>
-      {children}
+      <Transition
+        show={!centered}
+        enter="md:transition-all md:duration-300 md:ease-in-out"
+        enterFrom="md:translate-x-full md:opacity-0"
+        enterTo="md:translate-x-0 md:opacity-100"
+      >
+        <div className="width-schedule fixed inset-y-0 right-0 overflow-y-auto md:bg-white">{children}</div>
+      </Transition>
     </div>
   )
 }
