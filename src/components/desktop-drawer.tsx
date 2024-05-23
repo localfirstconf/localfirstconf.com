@@ -7,7 +7,7 @@ import Link from 'next/link'
 import {FC} from 'react'
 import {SessionFeedback} from './session-feedback'
 
-export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({session}) => {
+export const DesktopDrawer: FC<{back: string; session: Omit<Session, 'speaker'> & {speaker: Profile}}> = ({back, session}) => {
   const Content = useMDXComponent(session.body.code)
 
   return (
@@ -29,7 +29,7 @@ export const DesktopDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pr
               <span className="text-neutral-500">{session.speaker.role}</span>
             </div>
           </Link>
-          <Link href="/schedule/conference" scroll={false}>
+          <Link href={back} scroll={false}>
             <XMarkIcon className="size-6 text-neutral-500" />
           </Link>
         </div>

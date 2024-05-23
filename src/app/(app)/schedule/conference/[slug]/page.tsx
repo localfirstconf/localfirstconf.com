@@ -35,7 +35,7 @@ export default function SessionPage({params: {slug}}: {params: {slug: string}}) 
 
   return (
     <>
-      <DesktopDrawer session={session} />
+      <DesktopDrawer back="/schedule/conference" session={session} />
       <MobileDrawer session={session} />
     </>
   )
