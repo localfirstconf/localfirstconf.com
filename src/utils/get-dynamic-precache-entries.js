@@ -1,4 +1,4 @@
-function getDynamicPrecacheEntries(buildId, sessions, profiles) {
+function getDynamicPrecacheEntries(buildId) {
   const routes = [
     '/speakers',
     '/schedule/conference',
