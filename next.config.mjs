@@ -1,5 +1,10 @@
 import {withContentlayer} from 'next-contentlayer'
 import NextPWA from '@ducanh2912/next-pwa'
+import {nanoid} from 'nanoid'
+import getStaticPrecacheEntries from './src/utils/get-static-precache-entries.js'
+import getDynamicPrecacheEntries from './src/utils/get-dynamic-precache-entries.js'
+
+const buildId = nanoid()
 
 const withPWA = NextPWA({
   cacheOnFrontEndNav: true,
@@ -8,15 +13,17 @@ const withPWA = NextPWA({
   swcMinify: true,
   dest: 'public',
   fallbacks: {
-    document: '/offline' // if you want to fallback to a custom page rather than /_offline
+    document: '/offline'
   },
   workboxOptions: {
     disableDevLogs: true
-  }
+  },
+  additionalManifestEntries: [...getStaticPrecacheEntries(), ...getDynamicPrecacheEntries(buildId)]
 })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  generateBuildId: () => buildId,
   async redirects() {
     return [
       {
