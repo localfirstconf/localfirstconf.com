@@ -1,3 +1,4 @@
+import {AllRoutes} from '@/components/all-routes'
 import Link from 'next/link'
 
 export default function SchedulePage() {
@@ -60,6 +61,7 @@ export default function SchedulePage() {
           Expo Day
         </h2>
       </Link>
+      <AllRoutes />
     </div>
   )
 }
