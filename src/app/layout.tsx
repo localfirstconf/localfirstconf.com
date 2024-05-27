@@ -1,4 +1,4 @@
-import type {Metadata} from 'next'
+import type {Metadata, Viewport} from 'next'
 import {Passion_One, Roboto_Mono} from 'next/font/google'
 import './globals.css'
 import {cn} from '@/utils/cn'
@@ -14,7 +14,18 @@ export const metadata: Metadata = {
     default: 'Local-First Conf 2024'
   },
   description:
-    'Join us for the world’s first local-first conference. Connect with a rapidly-growing community in an intimate setting. Berlin, May 30 and 31 2024.'
+    'Join us for the world’s first local-first conference. Connect with a rapidly-growing community in an intimate setting. Berlin, May 30 and 31 2024.',
+  applicationName: 'Local-First Conf 2024',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Local-First Conf 2024'
+  }
+}
+
+export const viewport: Viewport = {
+  themeColor: '#EF8AF9'
 }
 
 export default function RootLayout({

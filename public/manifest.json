@@ -1,10 +1,10 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Local-First Conf 2024",
+  "short_name": "Local-First Conf",
   "theme_color": "#EF8AF9",
   "background_color": "#000000",
-  "display": "browser",
-  "orientation": "any",
+  "display": "standalone",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [

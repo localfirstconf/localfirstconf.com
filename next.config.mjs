@@ -16,9 +16,9 @@ const withPWA = NextPWA({
     document: '/offline'
   },
   workboxOptions: {
-    disableDevLogs: true
-  },
-  additionalManifestEntries: [...getStaticPrecacheEntries(), ...getDynamicPrecacheEntries(buildId)]
+    disableDevLogs: true,
+    additionalManifestEntries: [...getStaticPrecacheEntries(), ...getDynamicPrecacheEntries(buildId)]
+  }
 })
 
 /** @type {import('next').NextConfig} */
