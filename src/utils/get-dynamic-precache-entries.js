@@ -71,7 +71,7 @@ function getDynamicPrecacheEntries(buildId) {
     '/profile/phillip-van-der-merwe',
     '/profile/taylor-lucas'
   ]
-  return routes.map((route) => ({url: `/_next/data/${buildId}${route}.json`}))
+  return routes.map((route) => ({url: `/_next/data/${buildId}${route}.json`, revision: buildId}))
 }
 
 module.exports = getDynamicPrecacheEntries
