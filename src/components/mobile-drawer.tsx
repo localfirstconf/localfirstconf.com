@@ -50,7 +50,7 @@ export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pro
             <h1 className="mt-8 font-display text-4xl leading-none">{session.title}</h1>
             <p className="mt-8 flex items-center gap-3 text-blue">
               <ClockIcon className="size-5" />
-              <span>{`${format(new Date(session.start), 'MMM dd HH:mm', {timeZone: 'Europe/Berlin'})} - ${format(addMinutes(new Date(session.start), session.duration), 'HH:mm', {timeZone: 'Europe/Berlin'})}`}</span>
+              <span>{`${formatInTimeZone(new Date(session.start), 'Europe/Berlin', 'MMM dd HH:mm')} - ${formatInTimeZone(addMinutes(new Date(session.start), session.duration), 'Europe/Berlin', 'HH:mm')}`}</span>
             </p>
             <div className="prose prose-sm prose-neutral mt-12 text-neutral-500">
               <Content />
