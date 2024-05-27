@@ -2,11 +2,11 @@
 title: PowerSync
 speaker: ralf-kistner
 start: 2024-05-07T10:15+02:00
-duration: 45
+duration: 30
 location: Main Stage
 ---
 
-PowerSync is a battle-tested Postgres<->SQLite sync layer, enabling a local-first app architecture. It was spun off from an app platform product that’s been in production for more than a decade. PowerSync hooks into standard Postgres logical replication to stream data to SQLite on the client (providing live reactive queries), with production-grade support for partial replication through Sync Rules. Writes to SQLite are also placed on an upload queue and sent through the developer’s backend: This means that the developer controls any logic relating to how writes are applied to Postgres. PowerSync requires minimal modification to Postgres, and the SQLite schema is loosely coupled to the Postgres schema. A wide variety of client SDKs are available including JS/web, React Native, Flutter, Kotlin (KMP) and Swift.
+PowerSync is a battle-tested Postgres \<-\> SQLite sync layer, enabling a local-first app architecture. It was spun off from an app platform product that’s been in production for more than a decade. PowerSync hooks into standard Postgres logical replication to stream data to SQLite on the client (providing live reactive queries), with production-grade support for partial replication through Sync Rules. Writes to SQLite are also placed on an upload queue and sent through the developer’s backend: This means that the developer controls any logic relating to how writes are applied to Postgres. PowerSync requires minimal modification to Postgres, and the SQLite schema is loosely coupled to the Postgres schema. A wide variety of client SDKs are available including JS/web, React Native, Flutter, Kotlin (KMP) and Swift.
 
 In our interactive demo/tutorial, we will use the self-hosted version of the PowerSync Service along with our JavaScript/web SDK and React hooks. We will take an existing simple React task list app and show how it can be wired up to PowerSync, including using reactive query hooks. We will show the benefits of the PowerSync server-authoritative architecture, where the developer’s backend can apply custom logic to writes (e.g. for authorization and conflict resolution) and all clients update their local state to match the server-authoritative state, without discarding local mutations that are pending upload.
 
