@@ -3,7 +3,8 @@
 import {Drawer} from 'vaul'
 import {ClockIcon} from '@heroicons/react/20/solid'
 import {Profile, Session} from 'contentlayer/generated'
-import {addMinutes, format} from 'date-fns'
+import {addMinutes} from 'date-fns'
+import {format} from 'date-fns-tz'
 import {useMDXComponent} from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -49,7 +50,7 @@ export const MobileDrawer: FC<{session: Omit<Session, 'speaker'> & {speaker: Pro
             <h1 className="mt-8 font-display text-4xl leading-none">{session.title}</h1>
             <p className="mt-8 flex items-center gap-3 text-blue">
               <ClockIcon className="size-5" />
-              <span>{`${format(new Date(session.start), 'MMM dd HH:mm')} - ${format(addMinutes(new Date(session.start), session.duration), 'HH:mm')}`}</span>
+              <span>{`${format(new Date(session.start), 'MMM dd HH:mm', {timeZone: 'Europe/Berlin'})} - ${format(addMinutes(new Date(session.start), session.duration), 'HH:mm', {timeZone: 'Europe/Berlin'})}`}</span>
             </p>
             <div className="prose prose-sm prose-neutral mt-12 text-neutral-500">
               <Content />
