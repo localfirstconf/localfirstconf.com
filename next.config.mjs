@@ -46,6 +46,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'adamwiggins.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'productionpyconbackend.blob.core.windows.net'
       }
     ]
   }
