@@ -43,6 +43,7 @@ export const DesktopDrawer: FC<{back: string; session: Omit<Session, 'speaker'> 
           <Content />
         </div>
         <SessionFeedback sessionTitle={session.title} />
+        <div className="h-16" />
       </div>
     </div>
   )

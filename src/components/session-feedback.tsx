@@ -7,9 +7,9 @@ export const SessionFeedback: FC<{sessionTitle: string}> = ({sessionTitle}) => {
   return (
     <div className="mt-6 border-t border-black pt-8">
       <h3 className="mb-2 font-display text-2xl">Feedback</h3>
-      <p>
+      <p className="text-sm text-neutral-500">
         Let us know what you thought about this session using{' '}
-        <Link href={formUrl} target="_blank" rel="noreferrer" className="underline">
+        <Link href={formUrl} target="_blank" rel="noreferrer" className="text-black underline">
           this form
         </Link>
         !
