@@ -1,12 +1,14 @@
 import {AllRoutes} from '@/components/all-routes'
+import {LogoLink} from '@/components/logo-link'
 import Link from 'next/link'
 
 export default function SchedulePage() {
   return (
-    <div className="grid w-full max-w-3xl grid-cols-2 gap-8 px-4 py-24 md:px-0">
-      <div className="col-span-2 text-center">
+    <div className="grid w-full max-w-3xl grid-cols-2 gap-8 px-4 py-16 md:px-0 md:py-24">
+      <div className="col-span-2 md:text-center">
+        <LogoLink className="mb-12 block md:hidden" />
         <h1 className="font-display text-6xl uppercase leading-none md:text-[5rem]">Schedule</h1>
-        <p className="mb-16 mt-8 text-center">
+        <p className="mb-16 mt-8 md:text-center">
           Welcome to Local-First Conf 2024, taking place on May 30 (conference) and 31 (expo day) in Berlin, Germany. Choose a day below to see the
           schedule.
         </p>

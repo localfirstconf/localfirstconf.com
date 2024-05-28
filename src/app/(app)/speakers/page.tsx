@@ -1,10 +1,12 @@
+import {LogoLink} from '@/components/logo-link'
 import {allProfiles} from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function SpeakersPage() {
   return (
-    <div className="w-full max-w-3xl px-4 py-24 md:px-0">
+    <div className="w-full max-w-3xl px-4 py-16 md:px-0 md:py-24">
+      <LogoLink className="mb-12 block md:hidden" />
       <div className="mb-1 uppercase tracking-widest text-orange md:text-lg">Speakers</div>
       <h1 className="font-display text-4xl uppercase leading-none md:text-6xl">Hear from the World&apos;s best Local-First Builders</h1>
       <ul className="mt-16 grid grid-cols-2 gap-y-16 md:grid-cols-3">

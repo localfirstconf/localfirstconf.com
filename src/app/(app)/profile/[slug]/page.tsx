@@ -3,6 +3,7 @@ import {LinkedinIcon} from '@/components/icons/linkedin'
 import {MastodonIcon} from '@/components/icons/mastodon'
 import {TwitterIcon} from '@/components/icons/twitter'
 import {WhatsappIcon} from '@/components/icons/whatsapp'
+import {QRButton} from '@/components/qr-button'
 import {SpeakerBadge} from '@/components/speaker-badge'
 import {cn} from '@/utils/cn'
 import {EnvelopeIcon, GlobeAltIcon} from '@heroicons/react/20/solid'
@@ -36,6 +37,66 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
           <div className="prose prose-sm prose-neutral prose-invert mt-8 text-neutral-400">
             <Content />
           </div>
+          {profile.email && (
+            <Link href={`mailto:${profile.email}`} className="mt-8 block">
+              Email: {profile.email}
+            </Link>
+          )}
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {profile.email && (
+              <li>
+                <Link href={`mailto:${profile.email}`} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
+                  <EnvelopeIcon className="size-5 text-black" />
+                </Link>
+              </li>
+            )}
+            {profile.whatsapp && (
+              <li>
+                <Link
+                  href={`https://wa.me/${profile.whatsapp}`}
+                  className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-green-600"
+                >
+                  <WhatsappIcon className="size-5 text-black" />
+                </Link>
+              </li>
+            )}
+            {profile.twitter && (
+              <li>
+                <Link href={profile.twitter} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
+                  <TwitterIcon className="size-5 text-black" />
+                </Link>
+              </li>
+            )}
+            {profile.mastodon && (
+              <li>
+                <Link href={profile.mastodon} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
+                  <MastodonIcon className="size-5 text-black" />
+                </Link>
+              </li>
+            )}
+            {profile.linkedin && (
+              <li>
+                <Link href={profile.linkedin} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
+                  <LinkedinIcon className="size-5 text-black" />
+                </Link>
+              </li>
+            )}
+            {profile.instagram && (
+              <li>
+                <Link href={profile.instagram} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-orange">
+                  <InstagramIcon className="size-5 text-black" />
+                </Link>
+              </li>
+            )}
+            {profile.website && (
+              <li>
+                <Link href={profile.website} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-magenta">
+                  <GlobeAltIcon className="size-5 text-black" />
+                </Link>
+              </li>
+            )}
+          </ul>
+          <QRButton url={`https://app.localfirstconf.com/profile/${profile.slug}`} />
         </div>
         <div className="relative size-64 shrink-0">
           <Image
@@ -50,65 +111,6 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
             </svg>
           )}
         </div>
-      </div>
-      <ul className="mt-16 flex flex-wrap gap-2">
-        {profile.email && (
-          <li>
-            <Link href={`mailto:${profile.email}`} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
-              <EnvelopeIcon className="size-5 text-black" />
-            </Link>
-          </li>
-        )}
-        {profile.whatsapp && (
-          <li>
-            <Link href={`https://wa.me/${profile.whatsapp}`} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-green-600">
-              <WhatsappIcon className="size-5 text-black" />
-            </Link>
-          </li>
-        )}
-        {profile.twitter && (
-          <li>
-            <Link href={profile.twitter} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
-              <TwitterIcon className="size-5 text-black" />
-            </Link>
-          </li>
-        )}
-        {profile.mastodon && (
-          <li>
-            <Link href={profile.mastodon} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
-              <MastodonIcon className="size-5 text-black" />
-            </Link>
-          </li>
-        )}
-        {profile.linkedin && (
-          <li>
-            <Link href={profile.linkedin} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-blue">
-              <LinkedinIcon className="size-5 text-black" />
-            </Link>
-          </li>
-        )}
-        {profile.instagram && (
-          <li>
-            <Link href={profile.instagram} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-orange">
-              <InstagramIcon className="size-5 text-black" />
-            </Link>
-          </li>
-        )}
-        {profile.website && (
-          <li>
-            <Link href={profile.website} className="flex size-12 items-center justify-center rounded-full bg-white hover:bg-magenta">
-              <GlobeAltIcon className="size-5 text-black" />
-            </Link>
-          </li>
-        )}
-      </ul>
-      <div className="mt-16 size-64">
-        <QRCode
-          size={256}
-          style={{height: 'auto', maxWidth: '100%', width: '100%'}}
-          value={`https://app.localfirstconf.com/profile/${profile.slug}`}
-          viewBox={`0 0 256 256`}
-        />
       </div>
       {sessions.length > 0 && (
         <>

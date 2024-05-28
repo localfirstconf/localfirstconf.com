@@ -1,5 +1,6 @@
 'use client'
 
+import {LogoLink} from '@/components/logo-link'
 import {SchedulePage} from '@/components/schedule-page'
 import {cn} from '@/utils/cn'
 import {Transition, TransitionChild} from '@headlessui/react'
