@@ -50,6 +50,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'productionpyconbackend.blob.core.windows.net'
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com'
       }
     ]
   }
