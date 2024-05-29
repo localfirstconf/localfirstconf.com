@@ -66,6 +66,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'media.licdn.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '1.gravatar.com'
       }
     ]
   }
