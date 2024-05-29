@@ -70,6 +70,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: '1.gravatar.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'electric-sql.com'
       }
     ]
   }
