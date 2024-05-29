@@ -40,6 +40,7 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
               {profile.workshopHost && <WorkshopHostBadge />}
             </div>
           )}
+          <p className="mt-4">{profile.role}</p>
           <div className="prose prose-sm prose-neutral prose-invert mt-8 text-neutral-400">
             <Content />
           </div>
