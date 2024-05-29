@@ -74,6 +74,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'electric-sql.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com'
       }
     ]
   }
