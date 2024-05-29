@@ -5,6 +5,7 @@ import {TwitterIcon} from '@/components/icons/twitter'
 import {WhatsappIcon} from '@/components/icons/whatsapp'
 import {QRButton} from '@/components/qr-button'
 import {SpeakerBadge} from '@/components/speaker-badge'
+import {WorkshopHostBadge} from '@/components/workshop-host-badge'
 import {cn} from '@/utils/cn'
 import {EnvelopeIcon, GlobeAltIcon} from '@heroicons/react/20/solid'
 import {allProfiles, allSessions} from 'contentlayer/generated'
@@ -33,7 +34,12 @@ export default function AttendeePage({params: {slug}}: {params: {slug: string}})
       <div className="flex flex-col-reverse gap-x-16 gap-y-8 md:flex-row">
         <div>
           <h1 className="font-display text-5xl uppercase leading-none">{profile.name}</h1>
-          {profile.speaker && <SpeakerBadge />}
+          {(profile.speaker || profile.workshopHost) && (
+            <div className="mt-2 flex gap-4">
+              {profile.speaker && <SpeakerBadge />}
+              {profile.workshopHost && <WorkshopHostBadge />}
+            </div>
+          )}
           <div className="prose prose-sm prose-neutral prose-invert mt-8 text-neutral-400">
             <Content />
           </div>

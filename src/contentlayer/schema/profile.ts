@@ -9,6 +9,7 @@ export const Profile = defineDocumentType(() => ({
     role: {type: 'string', required: true},
     avatar: {type: 'string', required: true},
     speaker: {type: 'boolean', required: false, default: false},
+    workshopHost: {type: 'boolean', required: false, default: false},
     email: {type: 'string', required: false},
     whatsapp: {type: 'string', required: false},
     twitter: {type: 'string', required: false},
