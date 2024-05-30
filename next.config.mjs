@@ -57,6 +57,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'sambroner.com'
+      },
+      {
+        protocol: 'https',
         hostname: 'media.licdn.com'
       },
       {
