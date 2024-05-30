@@ -1,10 +1,10 @@
 'use client'
 
 import {useEffect, useState} from 'react'
-import {format} from 'date-fns'
 import {getCurrentSessions} from '@/utils/get-current-sessions'
 import Link from 'next/link'
 import {getNextSession} from '@/utils/get-next-session'
+import {toZonedTime, format} from 'date-fns-tz'
 
 export const NotificationBar = () => {
   const [time, setTime] = useState<Date>(new Date())
@@ -24,9 +24,9 @@ export const NotificationBar = () => {
   return (
     <div className="fixed top-0 z-20 flex h-auto min-h-8 w-full flex-wrap items-center justify-between bg-magenta px-4 py-1 text-xs text-black sm:h-8 md:px-8">
       <div className="line-clamp-1 whitespace-nowrap">
-        {format(time, 'MMM dd, HH')}
+        {format(toZonedTime(time, 'Europe/Berlin'), 'MMM dd, HH', {timeZone: 'Europe/Berlin'})}
         <span className="animate-blink">:</span>
-        {format(time, 'mm')}
+        {format(toZonedTime(time, 'Europe/Berlin'), 'mm', {timeZone: 'Europe/Berlin'})}
       </div>
       {currentSessions?.length > 0 && (
         <div className="line-clamp-1 whitespace-nowrap">
