@@ -22,7 +22,7 @@ export const NotificationBar = () => {
   }, [time])
 
   return (
-    <div className="fixed top-0 z-20 flex h-auto min-h-8 w-full flex-wrap items-center justify-between bg-magenta px-4 py-1 text-xs text-black sm:h-8 md:px-8">
+    <div className="fixed top-0 z-20 flex h-auto min-h-8 w-full flex-wrap items-center justify-between gap-x-4 bg-magenta px-4 py-1 text-xs text-black sm:h-8 md:px-8">
       <div className="line-clamp-1 whitespace-nowrap">
         {format(toZonedTime(time, 'Europe/Berlin'), 'MMM dd, HH', {timeZone: 'Europe/Berlin'})}
         <span className="animate-blink">:</span>
